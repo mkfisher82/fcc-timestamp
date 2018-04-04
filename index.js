@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.get('/', res.send("Welcome to my Free Code Camp timestamp app"));
+
 app.get('/:id', (req, res) => {
     let unix = parseInt(req.params.id);
     let natural;
