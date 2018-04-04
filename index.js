@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.get('/', (req, res) => res.send("Welcome to my Free Code Camp timestamp app"));
 
 app.get('/:id', (req, res) => {
@@ -19,4 +21,4 @@ app.get('/:id', (req, res) => {
     res.json({"unix": unix, "natural": natural});
 });
 
-app.listen(3000, () => console.log('App listening on port 3000'));
+app.listen(port, () => console.log('App listening on port ' + port));
