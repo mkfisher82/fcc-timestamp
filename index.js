@@ -1,10 +1,13 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req, res) => res.send('Welcome to my Free Code Camp timestamp app'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => res.sendFile(path.join(__dirname, 'public', 'landing.html')));
 
 app.get('/:id', (req, res) => {
   let unix = parseInt(req.params.id, 10);
